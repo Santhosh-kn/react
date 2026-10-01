@@ -1,11 +1,10 @@
-function Profile({name, stack, experience}){
+import UserName from './UserName'
+function Profile(){
     return(
         <>
-            <h2>{name}</h2>
-            <p>{stack}</p>
-            <p>{experience}</p>
+            <h2>Profile</h2>
+            <UserName />
         </>
     )
 }
-
 export default Profile
