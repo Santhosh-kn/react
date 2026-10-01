@@ -23,6 +23,13 @@ function App(){
   function handleSubmit(event){
     event.preventDefault()
     dispatch({type:'submitStart'})
+    setTimeout(() => {
+      if(form.email.includes('@')){
+        dispatch({type:'submitSuccess'})
+      } else {
+        dispatch({type:'submitError', message:'Please enter a valid email'})
+      }
+    }, 2000)
   }
   function handleChange(event){
     dispatch({
@@ -39,7 +46,7 @@ function App(){
         <br/>
         <p>Email: {form.email}</p>
         <input name="email" value={form.email} onChange={handleChange} />
-        <br/>
+        <br />
         <button type='button' onClick={() => dispatch({ type:'reset' })}>Reset</button>
         <br />
         <button type="submit">Submit</button>
